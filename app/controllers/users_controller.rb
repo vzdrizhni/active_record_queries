@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  def index
+  def show
     user = User.find(params[:id])
-    render :json, user
+    render json: user, include: ['orders', 'orders.products']
   end
 end
